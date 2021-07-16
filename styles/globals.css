@@ -5,6 +5,11 @@ body {
 	padding: 0;
 	margin: 0;
 	font-family: "Roboto", sans-serif;
+	background-color: aqua;
+	height: 100vh;
+}
+h1 {
+	font-weight: bold;
 }
 
 a {

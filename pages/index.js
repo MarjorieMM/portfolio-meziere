@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { Fragment } from "react";
+import AddArgo from "../components/form/Add-argo";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
