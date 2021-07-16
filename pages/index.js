@@ -3,7 +3,10 @@ import { Fragment } from "react";
 import AddArgo from "../components/form/Add-argo";
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
+export default function Home(props) {
+	const addArgonaute = () => {
+		console.log("works");
+	};
 	return (
 		<Fragment>
 			<Head>
@@ -15,7 +18,7 @@ export default function Home() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<AddArgo />
+			<AddArgo handleSubmit={addArgonaute} />
 		</Fragment>
 	);
 }
