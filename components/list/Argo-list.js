@@ -14,9 +14,7 @@ function ArgoList(props) {
 					<div key={i} className="col-12 col-md-4 text-center text-md-start">
 						<ul className="p-0 mb-0">
 							{col.map((argo, i) => (
-								<li key={i}>
-									{argo.id} - {argo.name}
-								</li>
+								<li key={i}>{argo.name}</li>
 							))}
 						</ul>
 					</div>
