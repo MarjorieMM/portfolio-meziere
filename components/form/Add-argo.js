@@ -42,7 +42,7 @@ function AddArgo(props) {
 									setValueAs: (v) => capitalizeFirstLetter(v),
 									required: "Veuillez entrer un nom pour votre Argonaute.",
 									pattern: {
-										value: /^[A-Za-z]+$/,
+										value: /^[A-Z a-z]+$/,
 										message: "Seules les lettres sont acceptées.",
 									},
 									maxLength: {
