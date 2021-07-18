@@ -1,9 +1,7 @@
 import classes from "./Add-argo.module.css";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 function AddArgo(props) {
-	const [invalid, setInvalid] = useState(false);
 	const {
 		register,
 		handleSubmit,
@@ -18,6 +16,8 @@ function AddArgo(props) {
 		props.handleAddArgo(data);
 		// reset();
 	};
+
+	// revoir revalidate, validation formulaire, capitalisation, regex, mettre à 50, ajouter commentaires, meta data et mettre en prod
 
 	return (
 		<div className="container px-5">
@@ -63,7 +63,7 @@ function AddArgo(props) {
 						/>
 					</div>
 					<div className="col-12 col-md-4 d-grid gap-2">
-						{props.argos.length < 300 ? (
+						{props.argos.length < 50 ? (
 							<button className={`btn ${classes.button}`}>Envoyer</button>
 						) : (
 							<button className={`text-nowrap btn ${classes.button}`} disabled>
