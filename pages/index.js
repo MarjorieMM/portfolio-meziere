@@ -66,7 +66,7 @@ export async function getStaticProps() {
 				name: argo.name,
 			})),
 		},
-		// revalidate: 5,
+		revalidate: 1,
 	};
 }
 
