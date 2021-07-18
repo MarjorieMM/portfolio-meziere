@@ -9,7 +9,7 @@ import useSWR from "swr";
 const fetcher = async (url) => await fetch(url).then((res) => res.json());
 
 function Home(props) {
-	// const router = useRouter();
+	const router = useRouter();
 	// data fetching client-side with swr
 	const url = "/api/show-argo";
 	const { data: argos, errors } = useSWR(url, fetcher, {
@@ -34,10 +34,10 @@ function Home(props) {
 			setError("");
 		}
 		// Refreshes the page to send the updated data from the database to the front after a new name has been added
-		// 	if (response.status < 300) {
-		// 		router.replace(router.asPath);
-		// 	}
-		// 	router.reload();
+		if (response.status < 300) {
+			router.replace(router.asPath);
+		}
+		router.reload();
 	}
 
 	return (
