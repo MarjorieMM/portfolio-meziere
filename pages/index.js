@@ -6,17 +6,17 @@ import AddArgo from "../components/form/Add-argo";
 import ArgoList from "../components/list/Argo-list";
 import useSWR from "swr";
 
-const fetcher = async (url) => await fetch(url).then((res) => res.json());
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 function Home(props) {
 	const router = useRouter();
 	// data fetching client-side with swr
 	const url = "/api/show-argo";
 	const { data: argos, errors } = useSWR(url, fetcher, {
-		initialData: [...props.argos],
+		initialData: props.argos,
 	});
 	const [error, setError] = useState("");
-
+	console.log(argos);
 	// function that adds a new argonaute with the api
 	async function addArgonaute(newArgo) {
 		const response = await fetch("/api/add-argo", {
@@ -34,10 +34,10 @@ function Home(props) {
 			setError("");
 		}
 		// Refreshes the page to send the updated data from the database to the front after a new name has been added
-		if (response.status < 300) {
-			router.replace(router.asPath);
-		}
-		router.reload();
+		// if (response.status < 300) {
+		// 	router.replace(router.asPath);
+		// }
+		// router.reload();
 	}
 
 	return (
@@ -73,6 +73,7 @@ export async function getStaticProps() {
 				name: argo.name,
 			})),
 		},
+		revalidate: 1,
 	};
 }
 
