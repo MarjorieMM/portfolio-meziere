@@ -30,7 +30,7 @@ function Home(props) {
 		if (response.status < 300) {
 			router.replace(router.asPath);
 		}
-		(setTimeout = () => router.reload()), 5000;
+		(setTimeout = () => router.reload()), 10000;
 	}
 
 	return (
