@@ -1,10 +1,12 @@
 import { MongoClient } from "mongodb";
 
 async function handler(req, res) {
+	// check that it is POST request
 	if (req.method === "POST") {
 		const data = req.body;
 
 		let client;
+		// connection to database
 		try {
 			client = await MongoClient.connect(
 				"mongodb+srv://MarjorieM:NwuWYzoBfVemKoaR@cluster0.wf6qn.mongodb.net/argonautes?retryWrites=true&w=majority"
@@ -16,11 +18,12 @@ async function handler(req, res) {
 			return;
 		}
 		const db = client.db();
-
+		// Check if the name sent is already in the database. 
+		// If it does, it sends back a 400 status code with an error message.
+		// If it doesn't, it persists the new name in the database.
 		try {
 			const argoCollection = db.collection("argonautes");
 			const exists = await argoCollection.find({ name: data.name }).toArray();
-			console.log(exists.length);
 			if (exists.length > 0) {
 				throw "existe déja";
 			}

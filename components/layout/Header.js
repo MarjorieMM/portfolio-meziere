@@ -1,12 +1,14 @@
-import classes from "./Header.module.css";
 import Image from "next/image";
+import classes from "./Header.module.css";
 
-function Header(props) {
+function Header() {
+	const imageSource =
+		"https://www.wildcodeschool.com/assets/logo_main-e4f3f744c8e717f1b7df3858dce55a86c63d4766d5d9a7f454250145f097c2fe.png";
 	return (
 		<header className={`text-center py-5 ${classes.header}`}>
 			<h1>
 				<Image
-					src="https://www.wildcodeschool.com/assets/logo_main-e4f3f744c8e717f1b7df3858dce55a86c63d4766d5d9a7f454250145f097c2fe.png"
+					src={imageSource}
 					alt="Wild Code School logo"
 					layout="intrinsic"
 					height="32px"

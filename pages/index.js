@@ -1,14 +1,14 @@
-import Head from "next/head";
 import { Fragment, useState } from "react";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { MongoClient } from "mongodb";
 import AddArgo from "../components/form/Add-argo";
 import ArgoList from "../components/list/Argo-list";
-import { MongoClient } from "mongodb";
-import { useRouter } from "next/router";
-import styles from "../styles/Home.module.css";
 
 function Home(props) {
 	const router = useRouter();
 	const [error, setError] = useState("");
+	// function that adds a new argonaute with the api
 	async function addArgonaute(newArgo) {
 		const response = await fetch("/api/add-argo", {
 			method: "POST",
@@ -18,8 +18,18 @@ function Home(props) {
 			},
 		});
 		const data = await response.json();
-		setError({ error: data.error });
-		router.reload(window.location.pathname);
+		console.log(data);
+		// Sets the error message so it can be sent to the front if it exists
+		if (data.error) {
+			setError({ error: data.error });
+		} else {
+			setError("");
+		}
+
+		// Refreshes the page to send the updated data from the database to the front after a new name has been added
+		if (response.status < 300) {
+			router.replace(router.asPath);
+		}
 	}
 
 	return (
@@ -40,6 +50,7 @@ function Home(props) {
 }
 
 export async function getStaticProps() {
+	// retrieves the data from the database and returns it as props
 	const client = await MongoClient.connect(
 		"mongodb+srv://MarjorieM:NwuWYzoBfVemKoaR@cluster0.wf6qn.mongodb.net/argonautes?retryWrites=true&w=majority"
 	);
@@ -55,7 +66,7 @@ export async function getStaticProps() {
 				name: argo.name,
 			})),
 		},
-		revalidate: 5,
+		// revalidate: 5,
 	};
 }
 
