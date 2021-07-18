@@ -9,15 +9,19 @@ function AddArgo(props) {
 		reset,
 	} = useForm();
 
-	const capitalizeFirstLetter = (string) =>
-		string.charAt(0).toUpperCase() + string.slice(1);
-
+	const capitalizeFirstLetter = (string) => {
+		const lower = string.toLowerCase().split(" ");
+		const capital = lower.map(
+			(low) => low.charAt(0).toUpperCase() + low.slice(1)
+		);
+		return capital.join(" ").toString();
+	};
 	const onSubmit = (data) => {
 		props.handleAddArgo(data);
 		// reset();
 	};
 
-	// revoir revalidate, validation formulaire, capitalisation, regex, mettre à 50, ajouter commentaires, meta data et mettre en prod
+	// revoir revalidate, ajouter commentaires, meta data et mettre en prod
 
 	return (
 		<div className="container px-5">
@@ -33,14 +37,14 @@ function AddArgo(props) {
 						<input
 							{...register(
 								"name",
+
 								{
 									setValueAs: (v) => capitalizeFirstLetter(v),
-								},
-								{
-									pattern: /[A-Za-z]/,
-								},
-								{
 									required: "Veuillez entrer un nom pour votre Argonaute.",
+									pattern: {
+										value: /^[A-Za-z]+$/,
+										message: "Seules les lettres sont acceptées.",
+									},
 									maxLength: {
 										value: 20,
 										message:
