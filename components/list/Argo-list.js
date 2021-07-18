@@ -1,7 +1,8 @@
 import classes from "./Argo-list.module.css";
 
 function ArgoList(props) {
-	const third = Math.ceil(20 / 3);
+	console.log(props);
+	const third = Math.ceil(50 / 3);
 	const twothird = third * 2;
 	const col1 = props.argos.slice(0, third);
 	const col2 = props.argos.slice(third, twothird);
@@ -20,13 +21,6 @@ function ArgoList(props) {
 					</div>
 				))}
 			</div>
-			{props.argos.length >= 20 && (
-				<div className="text-center p-5">
-					<button className={`text-nowrap btn ${classes.button}`}>
-						Valider votre équipage
-					</button>
-				</div>
-			)}
 		</div>
 	);
 }
