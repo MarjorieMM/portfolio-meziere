@@ -6,7 +6,7 @@ import { MongoClient } from "mongodb";
 import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
 
-export default function Home(props) {
+function Home(props) {
 	const router = useRouter();
 	const [error, setError] = useState("");
 	async function addArgonaute(newArgo) {
@@ -55,6 +55,8 @@ export async function getStaticProps() {
 				name: argo.name,
 			})),
 		},
-		// revalidate: 5,
+		revalidate: 5,
 	};
 }
+
+export default Home;
