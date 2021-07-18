@@ -28,10 +28,9 @@ function Home(props) {
 
 		// Refreshes the page to send the updated data from the database to the front after a new name has been added
 		if (response.status < 300) {
-			console.log(router);
 			router.replace(router.asPath);
 		}
-		router.reload();
+		(setTimeout = () => router.reload()), 5000;
 	}
 
 	return (
