@@ -19,7 +19,7 @@ function Home(props) {
 		});
 		const data = await response.json();
 		setError({ error: data.error });
-		// router.reload(window.location.pathname);
+		router.reload(window.location.pathname);
 	}
 
 	return (
