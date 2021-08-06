@@ -3,9 +3,9 @@ import Header from "./Header";
 import classes from "./Layout.module.css";
 
 function Layout(props) {
-	const footerText = "Réalisé par Jason en Anthestérion de l'an 515 avant JC. ";
-	const footerLien = "https://github.com/MarjorieMM/argonautes-wcs";
-	const textLien = "=> Jetez un œil sur son code !";
+	const footerText = "Réalisé avec React/NextJs par Marjorie MEZIERE. ";
+	const footerLien = "https://github.com/MarjorieMM";
+	const textLien = "=> Visitez mon Github !";
 	return (
 		<>
 			<Header />

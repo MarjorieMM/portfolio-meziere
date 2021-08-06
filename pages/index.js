@@ -2,8 +2,9 @@ import { Fragment, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { MongoClient } from "mongodb";
-import AddArgo from "../components/form/Add-argo";
+import AddArgo from "../components/form/Add-post";
 import ArgoList from "../components/list/Argo-list";
+import Homepage from "../components/homepage/Homepage";
 import useSWR from "swr";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -34,25 +35,26 @@ function Home(props) {
 			setError("");
 		}
 		// Refreshes the page to send the updated data from the database to the front after a new name has been added
-		// if (response.status < 300) {
-		// 	router.replace(router.asPath);
-		// }
-		// router.reload();
+		if (response.status < 300) {
+			router.replace(router.asPath);
+		}
+		router.reload();
 	}
 
 	return (
 		<Fragment>
 			<Head>
-				<title>Argo-App</title>
+				<title>Portfolio</title>
 				<meta
 					name="description"
-					content="Bienvenue sur le site des Argonautes"
+					content="Bienvenue sur le Portfolio de Marjorie MEZIERE"
 				/>
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<AddArgo handleAddArgo={addArgonaute} argos={argos} error={error} />
-			<ArgoList argos={argos} />
+			{/* <AddArgo handleAddArgo={addArgonaute} argos={argos} error={error} />
+			<ArgoList argos={argos} /> */}
+			<Homepage />
 		</Fragment>
 	);
 }

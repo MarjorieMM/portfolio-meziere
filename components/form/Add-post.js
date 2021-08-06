@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
-import classes from "./Add-argo.module.css";
+import classes from "./Add-post.module.css";
 
-function AddArgo(props) {
+function AddPost(props) {
 	const {
 		register,
 		handleSubmit,
@@ -16,28 +16,28 @@ function AddArgo(props) {
 			.replace(/(?:^|[\s-/'])\w/g, (match) => match.toUpperCase());
 
 	const onSubmit = (data) => {
-		props.handleAddArgo(data);
+		props.handleAddPost(data);
 		reset();
 	};
 
 	return (
 		<div className="container px-5">
-			<h2 className="text-center py-5">Ajouter un(e) Argonaute</h2>
+			<h2 className="text-center py-5">Ajouter un post</h2>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className="row g-3">
 					<div className="col-12">
 						<div className="text-center">
-							<label htmlFor="name">Nom de l&apos;Argonaute</label>
+							<label htmlFor="titre">Titre du post</label>
 						</div>
 					</div>
 					<div className="col-12 col-md-8">
 						<input
 							{...register(
-								"name",
+								"titre",
 
 								{
 									setValueAs: (v) => capitalizeFirstLetter(v),
-									required: "Veuillez entrer un nom pour votre Argonaute.",
+									required: "Veuillez entrer un titre pour votre post.",
 									pattern: {
 										value: /^['_A-Z a-zÀ-ÖØ-öø-ÿ-]+$/,
 										message: "Seules les lettres sont acceptées.",
@@ -45,40 +45,34 @@ function AddArgo(props) {
 									maxLength: {
 										value: 30,
 										message:
-											"Veuillez entrer un nom entre 3 et 20 charactères.",
+											"Veuillez entrer un titre entre 3 et 20 charactères.",
 									},
 									minLength: {
 										value: 3,
 										message:
-											"Veuillez entrer un nom entre 2 et 30 charactères.",
+											"Veuillez entrer un titre entre 2 et 30 charactères.",
 									},
 								}
 							)}
 							type="text"
 							className={`form-control ${
-								props.error.error || errors.name ? "is-invalid" : ""
+								props.error.error || errors.titre ? "is-invalid" : ""
 							}`}
-							id="name"
-							placeholder="Charalampos"
-							aria-label="name"
+							id="titre"
+							placeholder="Titre"
+							aria-label="titre"
 						/>
 					</div>
 					{/* Change of button to a disabled one to avoid adding more than 50 argonautes
 					 */}
 					<div className="col-12 col-md-4 d-grid gap-2">
-						{props.argos.length < 50 ? (
-							<button className={`btn ${classes.button}`}>Envoyer</button>
-						) : (
-							<button className={`text-nowrap btn ${classes.button}`} disabled>
-								Votre équipage est complet !
-							</button>
-						)}
+						<button className={`btn ${classes.button}`}>Publier le post</button>
 					</div>
 				</div>
 				<div className="row">
 					{/* Display the error messages from react-hook-form validation (name too short/long...) */}
-					{errors.name && (
-						<div className={classes.errors}>{errors.name.message}</div>
+					{errors.titre && (
+						<div className={classes.errors}>{errors.titre.message}</div>
 					)}
 					{/* Display the error sent by the server (name already in database) */}
 					{props.error && (
@@ -90,4 +84,4 @@ function AddArgo(props) {
 	);
 }
 
-export default AddArgo;
+export default AddPost;

@@ -5,7 +5,7 @@ async function handler(req, res) {
 	// connection to database
 	try {
 		client = await MongoClient.connect(
-			"mongodb+srv://MarjorieM:NwuWYzoBfVemKoaR@cluster0.wf6qn.mongodb.net/argonautes?retryWrites=true&w=majority"
+			"mongodb+srv://MarjorieM:NwuWYzoBfVemKoaR@cluster0.wf6qn.mongodb.net/portfolio?retryWrites=true&w=majority"
 		);
 	} catch (error) {
 		res
@@ -15,12 +15,12 @@ async function handler(req, res) {
 	}
 	const db = client.db();
 	try {
-		const argosCollection = db.collection("argonautes");
-		const argos = await argosCollection.find().toArray();
+		const pfCollection = db.collection("portfolio");
+		const post = await pfCollection.find().toArray();
 		client.close();
-		res.status(201).json(argos);
+		res.status(201).json(post);
 	} catch (error) {
-		res.status(400).json({ message: "Impossible d'afficher les Argonautes." });
+		res.status(400).json({ message: "Impossible d'afficher les posts." });
 	}
 }
 

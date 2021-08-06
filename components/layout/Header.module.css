@@ -1,7 +1,32 @@
 .header {
 	background: #f4f4f4;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
+}
+
+.button {
+	background-color: #f76c6c !important;
+	margin: 0 5px;
+}
+
+.link {
+	color: #f4f4f4 !important;
+}
+
+.link:hover {
+	color: #751313 !important;
+}
+
+.expanded[aria-expanded="true"] + div button {
+	background-color: #f4f4f4 !important;
+}
+
+.expanded[aria-expanded="true"] + div button a {
+	color: #f76c6c !important;
+}
+
+.expanded[aria-expanded="true"] + div button a:hover {
+	color: #751313 !important;
+}
+
+.expanded {
+	box-shadow: none !important;
 }
