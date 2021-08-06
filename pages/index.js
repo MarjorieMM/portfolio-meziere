@@ -59,7 +59,7 @@ function Home(props) {
 				/>
 				<meta
 					property="og:url"
-					content="https://protfolio-meziere.herokuapp.com/"
+					content="https://portfolio-marjorie-meziere.herokuapp.com/"
 				/>
 				<meta
 					property="og:image"
