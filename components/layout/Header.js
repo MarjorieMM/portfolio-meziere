@@ -3,6 +3,9 @@ import classes from "./Header.module.css";
 import Link from "next/link";
 
 function Header() {
+	const toggleShow = () => {
+		document.getElementById("navbarNavDropdown").classList.remove("show");
+	};
 	// const imageSource =
 	// 	"https://www.wildcodeschool.com/assets/logo_main-e4f3f744c8e717f1b7df3858dce55a86c63d4766d5d9a7f454250145f097c2fe.png";
 	return (
@@ -28,7 +31,7 @@ function Header() {
 			>
 				<div className="container-fluid">
 					<a className="navbar-brand" href="#">
-						Navbar
+						Portfolio
 					</a>
 					<button
 						className={`navbar-toggler ${classes.expanded}`}
@@ -47,50 +50,48 @@ function Header() {
 					>
 						<ul className="navbar-nav">
 							<li className="nav-item">
-								<button type="button" className={`btn ${classes.button}`}>
+								<button
+									type="button"
+									onClick={toggleShow}
+									className={`btn ${classes.button}`}
+								>
 									<Link href="/">
-										<a
-											className={`nav-link active ${classes.link}`}
-											aria-current="page"
-										>
-											Accueil
-										</a>
+										<a className={`nav-link ${classes.link}`}>Accueil</a>
 									</Link>
 								</button>
 							</li>
 							<li className="nav-item">
-								<button type="button" className={`btn ${classes.button}`}>
+								<button
+									type="button"
+									onClick={toggleShow}
+									className={`btn ${classes.button}`}
+								>
 									<Link href="/mon-cv">
-										<a
-											className={`nav-link active ${classes.link}`}
-											aria-current="page"
-										>
-											Mon C.V.
-										</a>
+										<a className={`nav-link ${classes.link}`}>Mon C.V.</a>
 									</Link>
 								</button>
 							</li>
 							<li className="nav-item">
-								<button type="button" className={`btn ${classes.button}`}>
+								<button
+									type="button"
+									onClick={toggleShow}
+									className={`btn ${classes.button}`}
+								>
 									<Link href="/mes-realisations">
-										<a
-											className={`nav-link active ${classes.link}`}
-											aria-current="page"
-										>
+										<a className={`nav-link ${classes.link}`}>
 											Mes réalisations
 										</a>
 									</Link>
 								</button>
 							</li>
 							<li className="nav-item">
-								<button type="button" className={`btn ${classes.button}`}>
+								<button
+									type="button"
+									onClick={toggleShow}
+									className={`btn ${classes.button}`}
+								>
 									<Link href="/mon-blog">
-										<a
-											className={`nav-link active ${classes.link}`}
-											aria-current="page"
-										>
-											Mon blog
-										</a>
+										<a className={`nav-link ${classes.link}`}>Mon blog</a>
 									</Link>
 								</button>
 							</li>

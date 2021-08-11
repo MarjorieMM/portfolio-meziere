@@ -15,18 +15,20 @@
 	color: #751313 !important;
 }
 
-.expanded[aria-expanded="true"] + div button {
-	background-color: #f4f4f4 !important;
-}
-
-.expanded[aria-expanded="true"] + div button a {
-	color: #f76c6c !important;
-}
-
-.expanded[aria-expanded="true"] + div button a:hover {
-	color: #751313 !important;
-}
-
 .expanded {
 	box-shadow: none !important;
+}
+
+@media (max-width: 991px) {
+	.expanded + div button {
+		background-color: #f4f4f4 !important;
+	}
+
+	.expanded + div button a {
+		color: #f76c6c !important;
+	}
+
+	.expanded + div button a:hover {
+		color: #751313 !important;
+	}
 }

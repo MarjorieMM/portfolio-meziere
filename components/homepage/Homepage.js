@@ -1,4 +1,4 @@
-import cat from "../../public/kitty-cat-helps-at-work.jpg";
+import cat from "../../public/images/kitty-cat-helps-at-work.jpg";
 import Image from "next/image";
 import { isMobileOnly } from "react-device-detect";
 import classes from "./Homepage.module.css";

@@ -19,16 +19,16 @@ async function handler(req, res) {
 		}
 		const db = client.db();
 		try {
-			const pfCollection = db.collection("portfolio");
+			const pfCollection = db.collection("user");
 			await pfCollection.insertOne(data);
 			res
 				.status(201)
-				.json({ message: "Insertion d'un nouveau post effectué." });
+				.json({ message: "Insertion d'un nouveau user effectué." });
 
 			client.close();
 		} catch (error) {
 			console.log(error);
-			res.status(400).json({ error: "Insertion du post impossible." });
+			res.status(400).json({ error: "Insertion du user impossible." });
 		}
 	}
 }
