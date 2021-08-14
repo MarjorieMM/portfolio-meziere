@@ -1,6 +1,7 @@
 import Footer from "./Footer";
 import Header from "./Header";
 import classes from "./Layout.module.css";
+import SideBar from "./SideBar";
 
 function Layout(props) {
 	const footerText = "Réalisé avec React/NextJs par Marjorie MEZIERE. ";
@@ -9,7 +10,7 @@ function Layout(props) {
 	return (
 		<>
 			<Header />
-			<main className={classes.main}>{props.children}</main>
+			<SideBar>{props.children}</SideBar>
 			<Footer
 				footertext={footerText}
 				footerlien={footerLien}

@@ -3,6 +3,6 @@ Réalisé avec la tech suivante :
 
 - NextJs
 - ReactJs
-- Bootsrap
+- Bootsrap 5
 
 Lien : https://protfolio-meziere.herokuapp.com/

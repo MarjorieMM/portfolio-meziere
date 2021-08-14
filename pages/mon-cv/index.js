@@ -2,12 +2,10 @@ import CardList from "../../components/cardlist/CardList";
 import { MongoClient } from "mongodb";
 
 export default function MonCv(props) {
-	const cvParts = props.items.filter((cat) => cat.categorie === "cv");
-
 	return (
-		<div className="container">
+		<div className="container mb-5">
 			<h1 className="text-center m-5">Mon C.V.</h1>
-			<CardList items={cvParts} />
+			<CardList items={props.items} />
 		</div>
 	);
 }
@@ -18,7 +16,7 @@ export async function getStaticProps() {
 	);
 	const db = client.db();
 	const cvCollection = db.collection("cards");
-	const cvParts = await cvCollection.find().toArray();
+	const cvParts = await cvCollection.find({ categorie: "cv" }).toArray();
 	client.close();
 	return {
 		props: {

@@ -2,14 +2,10 @@ import CardList from "../../components/cardlist/CardList";
 import { MongoClient } from "mongodb";
 
 export default function Blog(props) {
-	const realisations = props.items.filter(
-		(cat) => cat.categorie === "realisation"
-	);
-
 	return (
 		<div className="container">
 			<h1 className="text-center m-5">Mes réalisations</h1>
-			<CardList items={realisations} />
+			<CardList items={props.items} />
 		</div>
 	);
 }
@@ -20,7 +16,9 @@ export async function getStaticProps() {
 	);
 	const db = client.db();
 	const realisationCollection = db.collection("cards");
-	const realisations = await realisationCollection.find().toArray();
+	const realisations = await realisationCollection
+		.find({ categorie: "realisation" })
+		.toArray();
 	client.close();
 	return {
 		props: {
@@ -30,6 +28,8 @@ export async function getStaticProps() {
 				texte: realisations.texte,
 				imageNom: realisations.imageNom,
 				imageSrc: realisations.imageSrc,
+				site: realisations.site,
+				github: realisations.github,
 				id: realisations._id.toString(),
 			})),
 		},

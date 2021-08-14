@@ -2,10 +2,8 @@ import cat from "../../public/images/kitty-cat-helps-at-work.jpg";
 import Image from "next/image";
 import { isMobileOnly } from "react-device-detect";
 import classes from "./Homepage.module.css";
-import Typing from "./Typing";
 
 export default function Homepage() {
-	const words = ["Bienvenue", "dans mon Portfolio !"];
 	return (
 		<div>
 			<div className={classes.headtext}>
@@ -29,7 +27,6 @@ export default function Homepage() {
 					</div>
 				)}
 			</div>
-			<Typing words={words} />
 		</div>
 	);
 }
