@@ -1,4 +1,5 @@
 import Cards from "../cards/Cards";
+import Modal from "../modal/Modal";
 import classes from "./CardList.module.css";
 
 function CardList(props) {

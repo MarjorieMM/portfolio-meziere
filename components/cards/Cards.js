@@ -1,5 +1,6 @@
 import classes from "./Cards.module.css";
 import Image from "next/image";
+import Modal from "../modal/Modal";
 import { useRouter } from "next/router";
 
 const Cards = ({
@@ -13,9 +14,9 @@ const Cards = ({
 	site,
 }) => {
 	const router = useRouter();
-	console.log(categorie);
+	const trimmedTitle = cardTitle.replace(/\s/g, "").toLowerCase();
 	function showMoreHandler() {
-		router.push("/" + id);
+		router.push("/" + categorie + "/" + cardTitle);
 	}
 	return (
 		<div className="card mb-3 h-100" style={{ maxWidth: "540px" }}>
@@ -35,17 +36,7 @@ const Cards = ({
 							{cardTitle}
 						</h2>
 						<p className="card-text fst-italic fw-bolder">{cardText}</p>
-						{categorie === "cv" && (
-							<button
-								type="button"
-								onClick={showMoreHandler}
-								className="btn mt-auto"
-							>
-								<p className={`${classes.buttonText} fw-bolder`}>
-									Voir plus...
-								</p>
-							</button>
-						)}
+						{categorie === "cv" && <Modal title={trimmedTitle} />}
 						{categorie === "realisation" && (
 							<div className="mt-auto">
 								<a href={`https://www.github.com/marjorieMM/${github}`}>

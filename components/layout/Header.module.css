@@ -2,6 +2,21 @@
 	background: #f4f4f4;
 }
 
+/* .brand {
+	font-family: "patrick hand", "Roboto", sans-serif;
+	font-size: 2rem;
+} */
+
+.brand {
+	font-size: 2.5rem !important;
+	color: #f76c6c !important;
+	font-family: "patrick hand", "Roboto", sans-serif;
+	font-weight: 700;
+	text-shadow: 1px 1px 0px antiquewhite, 2px 2px 0px #efa032,
+		3px 3px 0px #46b59b, 4px 4px 0px #017e7f, 5px 5px 0px #052939,
+		6px 6px 0px #c11a2b, 7px 7px 0px #c11a2b, 8px 8px 0px;
+}
+
 .button {
 	background-color: #f76c6c !important;
 	margin: 0 5px;

@@ -6,33 +6,16 @@ function Header() {
 	const toggleShow = () => {
 		document.getElementById("navbarNavDropdown").classList.remove("show");
 	};
-	// const imageSource =
-	// 	"https://www.wildcodeschool.com/assets/logo_main-e4f3f744c8e717f1b7df3858dce55a86c63d4766d5d9a7f454250145f097c2fe.png";
+
 	return (
 		<header>
-			{/* <nav
-				className={`navbar navbar-expand-lg fixed-top navbar-light text-center ${classes.header}`}
-			>
-				<div className="container-fluid"> */}
-			{/* <h1> */}
-			{/* <Image
-					src={imageSource}
-					alt="logo"
-					layout="intrinsic"
-					height="32px"
-					width="96px"
-				/> */}
-			{/* <span className="p-2">Portfolio de Marjorie MEZIERE</span>
-					</h1> */}
-			{/* </div>
-			</nav> */}
 			<nav
-				className={`navbar fixed-top py-4 navbar-expand-lg navbar-light ${classes.header}`}
+				className={`navbar fixed-top py-3 navbar-expand-lg navbar-light ${classes.header}`}
 			>
-				<div className="container-fluid">
-					<a className="navbar-brand" href="#">
-						Portfolio
-					</a>
+				<div className="container-fluid mx-2">
+					<Link href="/">
+						<a className={`${classes.brand} navbar-brand`}>M-M</a>
+					</Link>
 					<button
 						className={`navbar-toggler ${classes.expanded}`}
 						type="button"

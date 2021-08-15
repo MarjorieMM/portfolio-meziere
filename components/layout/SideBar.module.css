@@ -22,3 +22,7 @@
 .marginImg:first-child {
 	background-color: antiquewhite;
 }
+
+.icons {
+	filter: drop-shadow(16px 16px 10px black);
+}

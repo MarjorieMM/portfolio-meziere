@@ -48,6 +48,7 @@ export default function SideBar({ children }) {
 									className={`${classes.links} nav-link align-middle px-0`}
 								>
 									<Image
+										className={classes.icons}
 										alt="linkedin"
 										src={linkedin}
 										layout="intrinsic"

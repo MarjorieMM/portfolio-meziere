@@ -1,0 +1,9 @@
+.buttonText,
+.pinkButton:hover {
+	color: #751313;
+}
+
+.pinkButton {
+	background-color: #f76c6c !important;
+	color: #fafafa;
+}

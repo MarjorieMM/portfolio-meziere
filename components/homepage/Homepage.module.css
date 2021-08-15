@@ -32,6 +32,9 @@
 	}
 } */
 
+.title {
+	font-family: "patrick hand", "Roboto", sans-serif;
+}
 .textonimage {
 	color: #751313 !important;
 }
