@@ -5,6 +5,7 @@ import linkedin from "../../public/images/in.png";
 import github from "../../public/images/git.png";
 import email from "../../public/images/email2.png";
 import cv from "../../public/images/cv.png";
+import profile from "../../public/images/profile.jpeg";
 
 export default function SideBar({ children }) {
 	return (
@@ -17,15 +18,15 @@ export default function SideBar({ children }) {
 					flex-column
 					align-items-center align-items-sm-start
 					px-3
-					pt-2
+					pt-3
 					min-vh-100
 				`}
 					>
-						<div className="mx-auto d-none d-md-block">
+						<div className="mx-auto my-3 d-none d-md-block">
 							<Image
 								className={classes.image}
 								alt="profile"
-								src="https://media-exp1.licdn.com/dms/image/C4D35AQGZoEr1P9raxg/profile-framedphoto-shrink_200_200/0/1609961784476?e=1629046800&v=beta&t=dc5Sjbxuy9wkI10rCesti8YUnmJhiEOD2tgtSYRG6Kc"
+								src={profile}
 								layout="intrinsic"
 								width="150px"
 								height="150px"
@@ -37,7 +38,6 @@ export default function SideBar({ children }) {
 						flex-column
 						mb-sm-auto mb-0
 						mx-auto
-						mt-5
 						align-items-center align-items-sm-start
 					"
 							id="menu"
@@ -90,7 +90,7 @@ export default function SideBar({ children }) {
 							</li>
 							<li className="nav-item">
 								<a
-									href="/files/CVMEZIERE_DEV_AL_WCS.pdf"
+									href="/files/CVMEZIERE_DEV_JUNIOR.pdf"
 									download
 									// href={process.env.PUBLIC_URL + "CVMEZIERE_DEV_AL_WCS.pdf"}
 									className={`${classes.links} nav-link align-middle px-0`}

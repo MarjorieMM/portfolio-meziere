@@ -1,9 +1,23 @@
 .buttonText,
-.pinkButton:hover {
+.pinkButton > a:hover {
 	color: #751313;
 }
 
-.pinkButton {
-	background-color: #f76c6c !important;
+.pinkButton > a {
+	background-color: #f76c6c;
 	color: #fafafa;
+	font-size: large;
+}
+
+.itemTitle {
+	color: #f76c6c;
+}
+
+/* .itemTitle + ul > li {
+	list-style-type: circle;
+} */
+
+.itemTitle + ul {
+	display: inline-block;
+	list-style-position: inside;
 }
