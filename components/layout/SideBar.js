@@ -10,7 +10,7 @@ import profile from "../../public/images/profile.jpeg";
 export default function SideBar({ children }) {
 	return (
 		<div className={`container-fluid ${classes.margintop}`}>
-			<div className="row flex-nowrap">
+			<div className="row flex-nowrap pb-5">
 				<div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
 					<div
 						className={`${classes.marginImg}
